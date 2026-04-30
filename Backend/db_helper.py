@@ -26,7 +26,8 @@ def fetch_all_records():
         expenses = cursor.fetchall()
         for expense in expenses:
             #print(expense)
-            return expenses
+            pass
+        return expenses
 
 def fetch_all_records_by_date(expense_date):
     with get_db_cursor() as cursor:
@@ -34,12 +35,12 @@ def fetch_all_records_by_date(expense_date):
         expenses = cursor.fetchall()
         for expense in expenses:
             #print(expense)
-            return expenses
+            pass
+        return expenses
 
 def insert_expense(expense_date, amount, category, notes):
     with get_db_cursor(commit=True) as cursor:
         cursor.execute('INSERT INTO expenses (expense_date, amount , category, notes) VALUES (%s, %s, %s, %s)',
-
                        (expense_date, amount, category, notes)
                        )
 def delete_expense_for_date(expense_date,amount, category , notes):
