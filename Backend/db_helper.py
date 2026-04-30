@@ -25,14 +25,17 @@ def fetch_all_records():
         cursor.execute('SELECT * FROM expenses')
         expenses = cursor.fetchall()
         for expense in expenses:
-            print(expense)
+            #print(expense)
+            return expenses
 
 def fetch_all_records_by_date(expense_date):
     with get_db_cursor() as cursor:
         cursor.execute('SELECT * FROM expenses where expense_date =%s',(expense_date,))
         expenses = cursor.fetchall()
         for expense in expenses:
-            print(expense)
+            #print(expense)
+            return expenses
+
 def insert_expense(expense_date, amount, category, notes):
     with get_db_cursor(commit=True) as cursor:
         cursor.execute('INSERT INTO expenses (expense_date, amount , category, notes) VALUES (%s, %s, %s, %s)',
@@ -53,14 +56,15 @@ def fetch_expense_summary(start_date, end_date):
                        
 if __name__ == "__main__":
     #fetch_all_records()
-    fetch_all_records_by_date('2024-08-20')
-    insert_expense('2024-08-20', 300, 'Food', 'pani puri')
-    fetch_all_records_by_date('2024-08-20')
-    delete_expense_for_date('2024-08-20', 300, 'Food', 'pani puri')
-    fetch_all_records_by_date('2024-08-20')
-    summmary = fetch_expense_summary('2024-08-01', '2024-08-31')
-    for record in summmary:
-        print(record)
+    #fetch_all_records_by_date('2024-08-20')
+    #insert_expense('2024-08-20', 300, 'Food', 'pani puri')
+    #fetch_all_records_by_date('2024-08-20')
+    #delete_expense_for_date('2024-08-20', 300, 'Food', 'pani puri')
+    #fetch_all_records_by_date('2024-08-20')
+    #summmary = fetch_expense_summary('2024-08-01', '2024-08-31')
+    #for record in summmary:
+        #print(record)
+    pass
 
 
 
