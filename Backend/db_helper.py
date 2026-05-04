@@ -1,5 +1,9 @@
 import mysql.connector
 from contextlib import contextmanager
+from logging_setup import setup_logger
+
+
+logger = setup_logger('db_helper')
 
 @contextmanager
 def get_db_cursor(commit=False):
@@ -21,6 +25,7 @@ def get_db_cursor(commit=False):
     connection.close()
     
 def fetch_all_records():
+    logger.info("Fetching all records from the database")
     with get_db_cursor() as cursor:
         cursor.execute('SELECT * FROM expenses')
         expenses = cursor.fetchall()
@@ -30,6 +35,7 @@ def fetch_all_records():
         return expenses
 
 def fetch_all_records_by_date(expense_date):
+    logger.info(f"Fetching records for date: {expense_date}")
     with get_db_cursor() as cursor:
         cursor.execute('SELECT * FROM expenses where expense_date =%s',(expense_date,))
         expenses = cursor.fetchall()
@@ -39,16 +45,19 @@ def fetch_all_records_by_date(expense_date):
         return expenses
 
 def insert_expense(expense_date, amount, category, notes):
+    logger.info(f"Inserting expense for date: {expense_date}")
     with get_db_cursor(commit=True) as cursor:
         cursor.execute('INSERT INTO expenses (expense_date, amount , category, notes) VALUES (%s, %s, %s, %s)',
                        (expense_date, amount, category, notes)
                        )
 def delete_expense_for_date(expense_date,amount, category , notes):
+    logger.info(f"Deleting expense for date: {expense_date}")
     with get_db_cursor(commit=True) as cursor:
         cursor.execute('DELETE FROM expenses where expense_date = %s AND amount = %s AND category = %s AND notes = %s',
                        (expense_date, amount, category, notes))
         
 def fetch_expense_summary(start_date, end_date):
+    logger.info(f"Fetching expense summary from {start_date} to {end_date}")
     with get_db_cursor() as cursor:
         cursor.execute('SELECT category, SUM(amount) as total FROM expenses WHERE expense_date BETWEEN %s AND %s GROUP BY category',
                        (start_date, end_date))
