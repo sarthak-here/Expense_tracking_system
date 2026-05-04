@@ -1,17 +1,19 @@
 # Expense Tracking System
 
-A full-stack expense tracking app with a FastAPI backend and Streamlit frontend, backed by MySQL.
+Full-stack expense tracking app built with FastAPI, MySQL, mysql-connector-python, Streamlit, Pandas, Pytest, and Python logging.
 
 ## Features
 
 - Log daily expenses with amount, category, and notes
 - View expenses for any date
-- Analytics: category-wise spending breakdown with percentages over a date range
+- Analytics: category-wise spending breakdown with percentages and bar chart over a date range
 
 ## Tech Stack
 
-- **Backend**: FastAPI, MySQL (via `mysql-connector-python`), Uvicorn
-- **Frontend**: Streamlit
+- **Backend**: FastAPI, Uvicorn, Pydantic
+- **Database**: MySQL, mysql-connector-python
+- **Frontend**: Streamlit, Pandas
+- **Logging**: Python `logging` module (via custom `logging_setup.py`)
 - **Testing**: pytest
 
 ## Project Structure
@@ -19,11 +21,13 @@ A full-stack expense tracking app with a FastAPI backend and Streamlit frontend,
 ```
 Expense_tracking_system/
 ├── Backend/
-│   ├── server.py        # FastAPI app and route handlers
-│   ├── db_helper.py     # MySQL query functions
-│   └── logging_setup.py # Logger configuration
+│   ├── server.py           # FastAPI app and route handlers
+│   ├── db_helper.py        # MySQL query functions
+│   └── logging_setup.py    # Logger configuration
 ├── Frontend/
-│   └── app.py           # Streamlit UI
+│   ├── app.py              # Main Streamlit app with tab layout
+│   ├── addorupdate.py      # Add/update expenses tab
+│   └── analyticss.py       # Analytics tab with charts
 └── tests/
     └── Backend/
         └── test_db_helper.py
@@ -57,7 +61,7 @@ CREATE TABLE expenses (
 ### Install Dependencies
 
 ```bash
-pip install fastapi uvicorn mysql-connector-python streamlit requests
+pip install -r requirements.txt
 ```
 
 ## Running the App
