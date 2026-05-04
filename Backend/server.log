@@ -50,3 +50,12 @@
 2026-05-05 00:07:55,397 - db_helper - INFO - Fetching records for date: 2024-08-15
 2026-05-05 00:25:24,405 - db_helper - INFO - Fetching expense summary from 2024-08-01 to 2024-08-05
 2026-05-05 00:33:04,901 - db_helper - INFO - Fetching expense summary from 2024-08-01 to 2024-08-05
+2026-05-05 05:01:03,036 - db_helper - INFO - Fetching records for date: 2024-08-01
+2026-05-05 05:02:05,563 - db_helper - INFO - Fetching records for date: 2024-08-01
+2026-05-05 05:03:26,757 - db_helper - INFO - Fetching records for date: 2024-08-01
+2026-05-05 05:11:24,140 - db_helper - INFO - Fetching records for date: 2024-08-01
+2026-05-05 05:11:27,718 - db_helper - INFO - Fetching records for date: 2024-08-01
+2026-05-05 05:11:29,784 - db_helper - INFO - Fetching expense summary from 2024-08-01 to 2024-08-05
+2026-05-05 05:12:52,128 - db_helper - INFO - Fetching records for date: 2024-08-01
+2026-05-05 05:12:56,880 - db_helper - INFO - Fetching records for date: 2024-08-01
+2026-05-05 05:12:58,926 - db_helper - INFO - Fetching expense summary from 2024-08-01 to 2024-08-05
